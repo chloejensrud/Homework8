@@ -8,10 +8,11 @@ namespace ValidParentheses
         static void Main(string[] args)
         {
             Solution aSolution = new Solution();
-            string test = "([])";
 
-            bool result = aSolution.IsValid(test);
-            Console.WriteLine(result);
+            Console.WriteLine(aSolution.IsValid("()"));
+            Console.WriteLine(aSolution.IsValid("{})"));
+            Console.WriteLine(aSolution.IsValid("{]"));
+            Console.WriteLine(aSolution.IsValid("(){}[]"));
         }
     }
 }
