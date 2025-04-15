@@ -15,27 +15,13 @@ namespace ValidParentheses
         {
             Stack<char> stack = new Stack<char>();
 
-            Dictionary<char, char> matchingPair = new Dictionary<char, char>
-            {
-                { '(', ')' },
-                { '{', '}' },
-                { '[', ']' }
-            };
-
             foreach (char c in s)
             {
-                if (matchingPair.ContainsKey(c))
-                {
-                    stack.Push(c);
-                }
-                else
-                {
-                    if (stack.Count == 0 || matchingPair[stack.Peek()] != c)
-                    {
-                        return false;
-                    }
-                    stack.Pop(); // Pop the matched opening bracket
-                }
+                if (c == '(') stack.Push(')');
+                else if (c == '[') stack.Push(']');
+                else if (c == '{') stack.Push('}');
+                else if (stack.Count == 0 || stack.Pop() != c) 
+                    return false;
             }
             return stack.Count == 0;
         }
