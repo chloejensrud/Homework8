@@ -14,33 +14,33 @@ namespace BaseballGame
     {
         public int KeepScore(string[] operations)
         { 
-            Stack<int> plays = new Stack<int>();
+            Stack<int> record = new Stack<int>();
 
             foreach(string o in operations)
             {
                 if(o == "+")
                 {
-                    int top = plays.Pop();
-                    int newTop = top + plays.Peek();
+                    int top = record.Pop();
+                    int newTop = top + record.Peek();
 
-                    plays.Push(top);
-                    plays.Push(newTop);
+                    record.Push(top);
+                    record.Push(newTop);
                 }
                 else if(o == "D")
                 {
-                    plays.Push(2 * plays.Peek());
+                    record.Push(2 * plays.Peek());
                 }
                 else if(o == "C")
                 {
-                    plays.Pop();
+                    record.Pop();
                 }
                 else
                 {
-                    plays.Push(int.Parse(o));
+                    record.Push(int.Parse(o));
                 }
             }
             int total = 0; 
-            foreach(int score in plays)
+            foreach(int score in record)
             {
                 total += score;
             }
