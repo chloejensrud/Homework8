@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace RecentCalls
 {
-    public class Solution
+    public class RecentCounter
     {
         private Queue<int> queue;
 
-        public Solution()
+        public RecentCounter()
         {
             queue = new Queue<int>();
         }
