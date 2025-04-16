@@ -9,13 +9,13 @@ namespace RecentCalls
     {
         static void Main(string[] args)
         {
-            Solution aSolution = new Solution();
+            RecentCounter count = new RecentCouter();
 
 
-            Console.WriteLine(aSolution.Ping(1));
-            Console.WriteLine(aSolution.Ping(100));
-            Console.WriteLine(aSolution.Ping(3001));
-            Console.WriteLine(aSolution.Ping(3002));
+            Console.WriteLine(count.Ping(1));
+            Console.WriteLine(count.Ping(100));
+            Console.WriteLine(count.Ping(3001));
+            Console.WriteLine(count.Ping(3002));
         }
     }
 }
