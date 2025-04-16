@@ -11,28 +11,30 @@ using System.Threading.Tasks;
 namespace NoLunch
 {
     public class Solution
+{
+    public int StudentCount(int[] students, int[] sandwiches)
     {
-        public int StudentCount(int[] students, int[] sandwiches)
-        {
-            Queue<int> studentLine = new Queue<int>(students);
-            int sandwichIndex = 0;
-            int reset = 0; 
+        Queue<int> studentLine = new Queue<int>(students);
+        int sandwichIndex = 0;
+        int reset = 0; 
 
-            while(studentLine.Count > 0 && reset < studentLine.Count)
+        while(studentLine.Count > 0 && reset < studentLine.Count)
+        {
+            int student = queue.Dequeue();
+
+            if(student == sandwiches[sandwichIndex])
             {
-                if(studentLine.Peek() == sandwiches[sandwichIndex])
-                {
-                    studentLine.Dequeue();
-                    sandwichIndex++;
-                    reset = 0;
-                }
-                else
-                {
-                    studentLine.Enqueue(studentLine.Dequeue());
-                    reset++;
-                }
+                sandwichIndex++;
+                reset = 0;
             }
-            return studentLine.Count;
+            else
+            {
+                queue.Enqueue(student);
+                reset++;
+            }
         }
+        return studentLine.Count;
+    }
+}
     }
 }
